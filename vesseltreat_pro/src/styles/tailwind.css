@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode Colors */
+    --color-background: #F8FAFC; /* slate-50 */
+    --color-foreground: #0F172A; /* slate-900 */
+    --color-border: #E2E8F0; /* slate-200 */
+    --color-input: #FFFFFF; /* white */
+    --color-ring: #1E40AF; /* blue-800 */
+    
+    /* Card Colors */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #0F172A; /* slate-900 */
+    
+    /* Popover Colors */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #0F172A; /* slate-900 */
+    
+    /* Muted Colors */
+    --color-muted: #F1F5F9; /* slate-100 */
+    --color-muted-foreground: #475569; /* slate-600 */
+    
+    /* Primary Colors */
+    --color-primary: #1E40AF; /* blue-800 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #64748B; /* slate-500 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors */
+    --color-accent: #0EA5E9; /* sky-500 */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Success Colors */
+    --color-success: #059669; /* emerald-600 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    /* Warning Colors */
+    --color-warning: #D97706; /* amber-600 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    /* Error/Destructive Colors */
+    --color-error: #DC2626; /* red-600 */
+    --color-error-foreground: #FFFFFF; /* white */
+    --color-destructive: #DC2626; /* red-600 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+  }
+
+  .dark {
+    /* Dark Mode Colors */
+    --color-background: #0F172A; /* slate-900 */
+    --color-foreground: #F8FAFC; /* slate-50 */
+    --color-border: #334155; /* slate-700 */
+    --color-input: #1E293B; /* slate-800 */
+    --color-ring: #3B82F6; /* blue-500 */
+    
+    /* Card Colors */
+    --color-card: #1E293B; /* slate-800 */
+    --color-card-foreground: #F8FAFC; /* slate-50 */
+    
+    /* Popover Colors */
+    --color-popover: #1E293B; /* slate-800 */
+    --color-popover-foreground: #F8FAFC; /* slate-50 */
+    
+    /* Muted Colors */
+    --color-muted: #475569; /* slate-600 */
+    --color-muted-foreground: #CBD5E1; /* slate-300 */
+    
+    /* Primary Colors */
+    --color-primary: #3B82F6; /* blue-500 */
+    --color-primary-foreground: #F8FAFC; /* slate-50 */
+    
+    /* Secondary Colors */
+    --color-secondary: #94A3B8; /* slate-400 */
+    --color-secondary-foreground: #0F172A; /* slate-900 */
+    
+    /* Accent Colors */
+    --color-accent: #06B6D4; /* cyan-500 */
+    --color-accent-foreground: #F8FAFC; /* slate-50 */
+    
+    /* Success Colors */
+    --color-success: #10B981; /* emerald-500 */
+    --color-success-foreground: #F8FAFC; /* slate-50 */
+    
+    /* Warning Colors */
+    --color-warning: #F59E0B; /* amber-500 */
+    --color-warning-foreground: #0F172A; /* slate-900 */
+    
+    /* Error/Destructive Colors */
+    --color-error: #EF4444; /* red-500 */
+    --color-error-foreground: #F8FAFC; /* slate-50 */
+    --color-destructive: #EF4444; /* red-500 */
+    --color-destructive-foreground: #F8FAFC; /* slate-50 */
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+
+  /* Prevent content from being cut off on mobile */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Ensure proper min-height for mobile */
+  body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  html {
+    height: -webkit-fill-available;
+  }
+}
+
+@layer components {
+  /* Glassmorphism utilities */
+  .glass-card {
+    @apply backdrop-blur-sm bg-white/80 dark:bg-slate-800/80 border border-white/10 dark:border-slate-700/20;
+  }
+  
+  .glass-surface {
+    @apply backdrop-blur-md bg-white/90 dark:bg-slate-800/90 border border-white/20 dark:border-slate-700/30;
+  }
+  
+  /* Maritime professional shadows */
+  .shadow-maritime-sm {
+    box-shadow: 0 1px 2px rgba(30, 64, 175, 0.05);
+  }
+  
+  .dark .shadow-maritime-sm {
+    box-shadow: 0 1px 2px rgba(59, 130, 246, 0.1);
+  }
+  
+  .shadow-maritime-md {
+    box-shadow: 0 4px 6px rgba(30, 64, 175, 0.07), 0 1px 3px rgba(30, 64, 175, 0.06);
+  }
+  
+  .dark .shadow-maritime-md {
+    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.15), 0 1px 3px rgba(59, 130, 246, 0.1);
+  }
+  
+  .shadow-maritime-lg {
+    box-shadow: 0 10px 15px rgba(30, 64, 175, 0.1), 0 4px 6px rgba(30, 64, 175, 0.05);
+  }
+  
+  .dark .shadow-maritime-lg {
+    box-shadow: 0 10px 15px rgba(59, 130, 246, 0.2), 0 4px 6px rgba(59, 130, 246, 0.1);
+  }
+  
+  /* Status indicators with pulse */
+  .status-pulse {
+    @apply animate-pulse;
+    animation-duration: 2s;
+  }
+  
+  /* Smooth transitions for maritime operations */
+  .transition-maritime {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  
+  .transition-maritime-slow {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .transition-maritime-page {
+    @apply transition-all duration-500 ease-in-out;
+  }
+
+  /* Layout utilities for proper spacing */
+  .main-layout {
+    @apply min-h-screen flex flex-col;
+  }
+
+  .content-area {
+    @apply flex-1 flex flex-col;
+  }
+
+  .page-container {
+    @apply flex-1 p-6;
+  }
+
+  /* Mobile-safe spacing */
+  .mobile-safe-bottom {
+    @apply pb-safe-bottom;
+  }
+
+  /* Responsive layout utilities */
+  .responsive-sidebar-margin {
+    @apply lg:ml-60 md:ml-16;
+  }
+
+  .responsive-header-spacing {
+    @apply pt-16;
+  }
+}
+
+@layer utilities {
+  /* Scrollbar styling */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-slate-600 rounded-full;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400 dark:bg-slate-500;
+  }
+  
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Animation utilities */
+  .animate-slide-in {
+    @apply animate-in slide-in-from-top-2 duration-200;
+  }
+  
+  .animate-slide-out {
+    @apply animate-out slide-out-to-top-2 duration-200;
+  }
+  
+  .animate-fade-in {
+    @apply animate-in fade-in duration-200;
+  }
+  
+  .animate-fade-out {
+    @apply animate-out fade-out duration-200;
+  }
+  
+  /* Focus ring utilities */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
+  }
+  
+  .focus-ring-inset {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-inset;
+  }
+  
+  /* Glass morphism utilities */
+  .glass-effect {
+    @apply backdrop-blur-sm bg-white/30 dark:bg-slate-800/30 border border-white/20 dark:border-slate-700/20;
+  }
+  
+  .glass-effect-strong {
+    @apply backdrop-blur-md bg-white/40 dark:bg-slate-800/40 border border-white/30 dark:border-slate-700/30;
+  }
+
+  /* Safe area utilities for mobile */
+  .pb-safe-bottom {
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .mb-safe-bottom {
+    margin-bottom: constant(safe-area-inset-bottom);
+    margin-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Prevent layout shifts */
+  .prevent-layout-shift {
+    @apply will-change-auto;
+  }
+
+  /* Optimized spacing for content sections */
+  .section-spacing {
+    @apply mb-8 last:mb-0;
+  }
+
+  /* Responsive text sizing */
+  .responsive-heading {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+
+  .responsive-subheading {
+    @apply text-lg sm:text-xl;
+  }
+}
+
+/* Custom media queries for better mobile support */
+@media (max-width: 768px) {
+  .mobile-optimized {
+    @apply px-4 py-2;
+  }
+}
+
+@media (max-height: 600px) {
+  .short-screen {
+    @apply py-2;
+  }
+}
